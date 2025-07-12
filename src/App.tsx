@@ -1,12 +1,13 @@
+import { BrowserRouter } from 'react-router-dom'
 import './App.css'
-import { Button } from './components/ui/button'
+import Layout from './components/layout'
+// import { Layout } from 'lu'
 
 function App() {
   return (
-    <div>
-      ELITE
-      <Button variant="destructive">Susscribe</Button>
-    </div>
+    <BrowserRouter>
+      <Layout> Hello </Layout>
+    </BrowserRouter>
   )
 }
 
