@@ -1,5 +1,6 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import './App.css'
+import "./index.css"
 import Layout from './components/layout'
 import { ThemeProvider } from './context/theme-provider'
 import WeatherDashboard from './pages/weather-dashboard'
