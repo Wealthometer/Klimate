@@ -39,7 +39,7 @@ const Header = () => {
           <button
             onClick={toggleTheme}
             className={`flex items-center cursor-pointer transition-transform duration-500 hover:scale-110 ${
-              isDark ? "rotate-180" : "rotate-0"
+              isDark ? "rotate-0" : "rotate-180"
             }`}
             aria-label="Toggle theme"
           >

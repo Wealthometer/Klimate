@@ -83,13 +83,17 @@ const WeatherDashboard = () => {
         <AlertTitle>Error</AlertTitle>
         <AlertDescription className="flex flex-col gap-4 ">
           <p>Failed To Fetch Weather Data. Pls Try Again</p>
-          <Button onClick={getLocation} variant={"outline"} className="w-fit">
+          <Button onClick={handlerRefresh} variant={"outline"} className="w-fit">
             <RefreshCcw className="mr-2 h-4 w-4" />
             Retry
           </Button>
         </AlertDescription>
       </Alert>
     );
+  }
+
+  if (!weatherQuery.data || !forecastQuery.data) {
+    return <WeatherSkeleton />;
   }
 
   return (
@@ -101,9 +105,9 @@ const WeatherDashboard = () => {
           variant={"outline"}
           size={"icon"}
           onClick={handlerRefresh}
-          // disabled = {}
+          disabled = {weatherQuery.isFetching || forecastQuery.isFetching}
         >
-          <RefreshCcw className="h-4 w-4" />
+          <RefreshCcw className={`h-4 w-4 ${weatherQuery.isFetching ? "animate-spin" : ""}`} />
         </Button>
       </div>
     </div>
