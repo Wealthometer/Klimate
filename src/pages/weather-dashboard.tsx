@@ -1,7 +1,43 @@
-import { RefreshCcw } from "lucide-react";
+import { AlertTriangle, MapPin, RefreshCcw, Terminal } from "lucide-react";
 import { Button } from "../components/ui/button";
+import { useGeolocation } from "../hooks/usegeolocation";
+import WeatherSkeleton from "../components/loading-skelenton";
+import { Alert, AlertDescription, AlertTitle } from "../components/ui/alert"
 
 const WeatherDashboard = () => {
+  const {coordinates, error : locationError, getLocation, isLoading : locationLoading} = useGeolocation();
+  
+  console.log(coordinates);
+  // console.log(getLocation);
+  // console.log(error);
+  // console.log(isLoading);
+
+  const handlerRefresh = () => {
+    getLocation();
+    if(coordinates) {
+      // reload weather data
+    }
+  }
+
+  if(locationLoading) {
+    return <WeatherSkeleton />
+  }
+
+  if (locationError) {
+    <Alert variant="destructive">
+      <AlertTriangle className="h-4 w-4" />
+      <Terminal />
+      <AlertTitle>Error</AlertTitle>
+      <AlertDescription>
+        <p>{locationError}</p>
+        <Button onClick={getLocation} variant={"outline"} className="w-fit">
+          <MapPin className="mr-2 h-4 w-4" />
+          Enable Location
+        </Button>
+      </AlertDescription>
+    </Alert>
+  }
+
   return (
     <div>
       {/* Favourite Cities */}
@@ -10,7 +46,7 @@ const WeatherDashboard = () => {
         <Button
           variant={"outline"}
           size={"icon"}
-          // onClick={handlerRefresh}
+          onClick={handlerRefresh}
           // disabled = {}
         >
           <RefreshCcw className="h-4 w-4" />
