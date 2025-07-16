@@ -10,3 +10,7 @@ body {
 body::-webkit-scrollbar {
   display: none;
 }
+
+.margin-top {
+  margin-top: 35px;
+}

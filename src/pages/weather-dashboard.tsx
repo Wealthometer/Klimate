@@ -8,6 +8,7 @@ import {
   useReverseGeocodeQuery,
   useWeatherQuery,
 } from "../hooks/use-weather";
+import CurrentWeather from "../components/current-weather";
 
 const WeatherDashboard = () => {
   const {
@@ -109,6 +110,17 @@ const WeatherDashboard = () => {
         >
           <RefreshCcw className={`h-4 w-4 ${weatherQuery.isFetching ? "animate-spin" : ""}`} />
         </Button>
+      </div>
+
+      <div className="grid gap-6">
+        <CurrentWeather data = {weatherQuery.data} locationName = {locationName } />
+        {/* Current Weather */}
+        {/* Hourly Temperature */}
+      </div>
+
+      <div>
+        {/* details */}
+        {/* forecast */}
       </div>
     </div>
   );
