@@ -24,7 +24,7 @@ const WeatherDashboard = () => {
   }
 
   if (locationError) {
-    <Alert variant="destructive">
+    return ( <Alert variant="destructive">
       <AlertTriangle className="h-4 w-4" />
       <Terminal />
       <AlertTitle>Error</AlertTitle>
@@ -35,7 +35,7 @@ const WeatherDashboard = () => {
           Enable Location
         </Button>
       </AlertDescription>
-    </Alert>
+    </Alert>)
   }
 
   return (
