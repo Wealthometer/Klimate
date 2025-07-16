@@ -28,8 +28,22 @@ const WeatherDashboard = () => {
       <AlertTriangle className="h-4 w-4" />
       <Terminal />
       <AlertTitle>Error</AlertTitle>
-      <AlertDescription>
+      <AlertDescription className="flex flex-col gap-4 ">
         <p>{locationError}</p>
+        <Button onClick={getLocation} variant={"outline"} className="w-fit">
+          <MapPin className="mr-2 h-4 w-4" />
+          Enable Location
+        </Button>
+      </AlertDescription>
+    </Alert>)
+  }
+
+    if (!coordinates) {
+    return ( 
+      <Alert variant="destructive">
+      <AlertTitle>Location Required</AlertTitle>
+      <AlertDescription className="flex flex-col gap-4 ">
+        <p>Please Enable Location Access To See Your Local Weather.</p>
         <Button onClick={getLocation} variant={"outline"} className="w-fit">
           <MapPin className="mr-2 h-4 w-4" />
           Enable Location
