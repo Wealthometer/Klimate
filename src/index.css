@@ -14,3 +14,7 @@ body::-webkit-scrollbar {
 .margin-top {
   margin-top: 35px;
 }
+
+.margin-left {
+  transform: translateX(-25px);
+}

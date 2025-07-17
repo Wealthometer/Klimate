@@ -85,7 +85,11 @@ const WeatherDashboard = () => {
         <AlertTitle>Error</AlertTitle>
         <AlertDescription className="flex flex-col gap-4 ">
           <p>Failed To Fetch Weather Data. Pls Try Again</p>
-          <Button onClick={handlerRefresh} variant={"outline"} className="w-fit">
+          <Button
+            onClick={handlerRefresh}
+            variant={"outline"}
+            className="w-fit"
+          >
             <RefreshCcw className="mr-2 h-4 w-4" />
             Retry
           </Button>
@@ -99,7 +103,7 @@ const WeatherDashboard = () => {
   }
 
   return (
-    <div>
+    <div className="space-y-4">
       {/* Favourite Cities */}
       <div className="flex items-center justify-between">
         <h1 className="text-xl font-bold tracking-tight">My Location</h1>
@@ -107,22 +111,31 @@ const WeatherDashboard = () => {
           variant={"outline"}
           size={"icon"}
           onClick={handlerRefresh}
-          disabled = {weatherQuery.isFetching || forecastQuery.isFetching}
+          disabled={weatherQuery.isFetching || forecastQuery.isFetching}
         >
-          <RefreshCcw className={`h-4 w-4 ${weatherQuery.isFetching ? "animate-spin" : ""}`} />
+          <RefreshCcw
+            className={`h-4 w-4 ${
+              weatherQuery.isFetching ? "animate-spin" : ""
+            }`}
+          />
         </Button>
       </div>
 
       <div className="grid gap-6">
-        <CurrentWeather data = {weatherQuery.data} locationName = {locationName } />
-        
-        <HourlyTemperature data = {forecastQuery.data} />
-        {/* Hourly Temperature */}
-      </div>
+        <div className="flex flex-col lg:flex-row gap-4">
+          <CurrentWeather
+            data={weatherQuery.data}
+            locationName={locationName}
+          />
 
-      <div>
-        {/* details */}
-        {/* forecast */}
+          <HourlyTemperature data={forecastQuery.data} />
+          {/* Hourly Temperature */}
+        </div>
+
+        <div>
+          {/* details */}
+          {/* forecast */}
+        </div>
       </div>
     </div>
   );
