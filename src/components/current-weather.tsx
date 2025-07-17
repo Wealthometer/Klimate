@@ -98,7 +98,7 @@ const CurrentWeather = ({ data, locationName }: CurrentWeatherProps) => {
                 alt=""
               />
               <div className="absolute bottom-0 text-center">
-                <p className="text-sm font-medium capitalize">
+                <p className="text-sm font-medium capitalize margin-left-1">
                   {currentWeather.description}
                 </p>
               </div>
