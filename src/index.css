@@ -22,3 +22,7 @@ body::-webkit-scrollbar {
 .margin-left-1 {
   transform: translateX(79px);
 }
+
+.margin-right {
+  transform: translateX();
+}

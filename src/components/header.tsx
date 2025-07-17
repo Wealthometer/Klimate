@@ -1,8 +1,9 @@
 "use client"
-
+import "../index.css"
 import { useTheme } from "../hooks/use-theme"
 import { Link } from "react-router-dom"
 import { Moon, Sun } from "lucide-react"
+import { CitySearch } from "./city-search"
 
 const Header = () => {
   const { theme, setTheme } = useTheme()
@@ -36,9 +37,11 @@ const Header = () => {
         </Link>
 
         <div>
+          <CitySearch />
+          
           <button
             onClick={toggleTheme}
-            className={`flex items-center cursor-pointer transition-transform duration-500 hover:scale-110 ${
+            className={`flex items-center cursor-pointer transition-transform duration-500 hover:scale-110 margin-right ${
               isDark ? "rotate-0" : "rotate-180"
             }`}
             aria-label="Toggle theme"
