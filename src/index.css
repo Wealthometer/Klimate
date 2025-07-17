@@ -24,9 +24,12 @@ body::-webkit-scrollbar {
 }
 
 .margin-right {
-  transform: translateX(340px) translateY(-20px);
+  position: absolute;
+  top: 35px;
+  left: 1900px;
 }
 
 .margin-right-1 {
+  position: absolute;
   transform: translateY(7px);
 }

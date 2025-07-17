@@ -1,7 +1,7 @@
+import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 import { ArrowDown, ArrowUp, Droplets, Wind } from "lucide-react";
-import type { ForecastData } from "../api/types";
 import { format } from "date-fns";
-import { Card, CardHeader, CardTitle, CardContent } from "./ui/card";
+import type { ForecastData } from "../api/types";
 
 interface WeatherForecastProps {
   data: ForecastData;
@@ -21,7 +21,8 @@ interface DailyForecast {
   };
 }
 
-const WeatherForecast = ({ data }: WeatherForecastProps) => {
+export function WeatherForecast({ data }: WeatherForecastProps) {
+  // Group forecast by day and get daily min/max
   const dailyForecasts = data.list.reduce((acc, forecast) => {
     const date = format(new Date(forecast.dt * 1000), "yyyy-MM-dd");
 
@@ -45,6 +46,7 @@ const WeatherForecast = ({ data }: WeatherForecastProps) => {
   // Get next 5 days
   const nextDays = Object.values(dailyForecasts).slice(1, 6);
 
+  // Format temperature
   const formatTemp = (temp: number) => `${Math.round(temp)}°`;
 
   return (
@@ -95,6 +97,4 @@ const WeatherForecast = ({ data }: WeatherForecastProps) => {
       </CardContent>
     </Card>
   );
-};
-
-export default WeatherForecast;
+}
