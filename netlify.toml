@@ -3,4 +3,4 @@
   publish = "dist"
 
 [secrets_scanning]
-  omit_keys = ["VITE_OPENWEATHER_API_KEY"]
+  omit_paths = ["dist/**"]
