@@ -24,9 +24,8 @@ body::-webkit-scrollbar {
 }
 
 .margin-right {
-  position: absolute;
-  top: 35px;
-  left: 1900px;
+  position: relative;
+  transform: translateX(-35px)  translateY(-22px);
 }
 
 .margin-right-1 {
