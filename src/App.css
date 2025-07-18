@@ -1,5 +1,3 @@
-@import "tailwindcss/preflight";
-/* @import "tw-animate-css"; */
 
 @import "tw-animate-css";
 
@@ -1198,4 +1196,3 @@
   --radius: 0.25rem;
   --max-width-prose: 65ch;
 }
-
