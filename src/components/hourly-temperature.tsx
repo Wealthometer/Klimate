@@ -8,6 +8,7 @@ import {
   ResponsiveContainer,
 } from "recharts";
 import { format } from "date-fns";
+import '../index.css'
 import type { ForecastData } from "../api/types"
 
 interface HourlyTemperatureProps {
@@ -53,6 +54,7 @@ export function HourlyTemperature({ data }: HourlyTemperatureProps) {
                 tickLine={false}
                 axisLine={false}
                 tickFormatter={(value) => `${value}°`}
+                className="margin-left"
               />
               <Tooltip
                 content={({ active, payload }) => {
